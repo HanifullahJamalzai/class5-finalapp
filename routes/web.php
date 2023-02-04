@@ -20,3 +20,17 @@ Route::get('/admin', function () {
 Route::get('/', function () {
     return view('landing.index');
 });
+
+Route::get('/contact', function () {
+    return view('landing.contact');
+});
+
+Route::get('/agent', function () {
+    return view('landing.agent');
+});
+
+Route::get('/properties', function () {
+    return view('landing.properties');
+});
+
+
