@@ -1,0 +1,62 @@
+Real-estateDB
+
+user
+    - role
+
+-> Properties
+    - user_id
+    - photo
+    - title
+    - besawa
+    - address
+    - price
+    - description
+    - type (home, house, block, sarai, zamen)
+    - category (sale, sell, rent, mortgage)
+    - Agent_id
+
+-> Property_indoor
+    - property_id        
+    - rooms
+    - bathrooms
+    - kitchen
+
+
+-> Testimonial
+    -> name
+    -> position
+    -> description
+
+-> service
+    - title
+    - icon
+    - description
+
+-> Setting
+    - footer_description
+    - address
+    - phone
+    - email
+
+
+-> Agent
+    - name
+    - photo
+    - bio
+
+-> Message
+    - Name
+    - Email
+    - Message
+
+-> Tags
+    - name
+
+
+-> Properties_tags (Pivot)
+    property_id
+    tag_id
+
+
+
+
