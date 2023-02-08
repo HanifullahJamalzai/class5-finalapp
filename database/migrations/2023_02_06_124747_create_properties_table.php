@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('agent_id');
             $table->string('title');
             $table->string('photo');
             $table->float('beswa');
