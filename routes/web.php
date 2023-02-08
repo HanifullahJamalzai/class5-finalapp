@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin', function () {
-    return view('admin.index');
+Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function () {
+    Route::get('/', function () {
+        return view('admin.index');
+    });
+
 });
+
+Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::get('register', [RegisterController::class, 'index'])->name('register');
+
+
+
 
 Route::get('/', function () {
     return view('landing.index');
