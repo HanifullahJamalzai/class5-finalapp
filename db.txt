@@ -2,6 +2,8 @@ Real-estateDB
 
 user
     - role
+    - bio
+    - photo
 
 -> Properties
     - user_id
@@ -39,10 +41,6 @@ user
     - email
 
 
--> Agent
-    - name
-    - photo
-    - bio
 
 -> Message
     - Name
@@ -53,7 +51,7 @@ user
     - name
 
 
--> Properties_tags (Pivot)
+-> Property_tag (Pivot)
     property_id
     tag_id
 

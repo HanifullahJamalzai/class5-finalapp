@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('agents', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('property_tag', function (Blueprint $table) {
+            $table->integer('property_id');
+            $table->integer('tag_id');
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agents');
+        Schema::dropIfExists('property_tag');
     }
 };

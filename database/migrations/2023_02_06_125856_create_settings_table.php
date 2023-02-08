@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
+            $table->text('footer_description');
+            $table->string('address');
+            $table->string('phone');
+            $table->string('email');
             $table->timestamps();
         });
     }
