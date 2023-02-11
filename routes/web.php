@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function () {
 });
 
 Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::post('login/user', [LoginController::class, 'login'])->name('user.login');
 Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::post('register/user', [RegisterController::class, 'store'])->name('user.store');
 

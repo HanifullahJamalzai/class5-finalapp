@@ -11,4 +11,16 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:4|max:255',
+        ],[
+            'email.required' => 'اندیواله ایمیل دی واچوه',
+            'email.email' => 'بچیش همو ایمیل ته صحی نوشته کو'
+        ]);
+        
+        dd($request->all());
+    }
 }

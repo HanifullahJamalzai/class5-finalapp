@@ -55,26 +55,32 @@
 
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4">Register New Account</h5>
-                    <p class="text-center small">Enter your username & password to login</p>
+                    @include('common.alert')
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
-
+                  <form class="row g-3" action="{{ route('user.login') }}" method="POST">
+                    @csrf
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Email</label>
                       <div class="input-group has-validation">
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+                        <input type="email" name="email" class="form-control" id="yourUsername" value="{{ old('email') }}">
                       </div>
+                      @error('email')
+                        <div class="text-danger">{{ $message }}</div>
+                      @enderror
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <input type="password" name="password" class="form-control" id="yourPassword">
                     </div>
+                    @error('password')
+                        <div class="text-danger">{{ $message }}</div>
+                      @enderror
 
                     <div class="col-12">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
+                        <input class="form-check-input" type="checkbox" name="remember"id="rememberMe">
                         <label class="form-check-label" for="rememberMe">Remember me</label>
                       </div>
                     </div>
