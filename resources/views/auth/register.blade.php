@@ -58,55 +58,61 @@
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
-
+                  <form action="{{ route('user.store')  }}" class="row g-3 " method="Post" enctype="multipart/form-data">
+                    @csrf
                     <div class="col-6">
                       <label for="yourUsername" class="form-label">Name</label>
                       <div class="input-group has-validation">
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+                        <input type="text" name="name" class="form-control" id="yourUsername" value="{{ old('name') }}">
                       </div>
+                      @error('name')
+                        <div class="text-danger">{{ $message }}</div>
+                      @enderror
                     </div>
                     <div class="col-6">
                       <label for="yourUsername" class="form-label">Email</label>
                       <div class="input-group has-validation">
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+                        <input type="email" name="email" class="form-control" id="yourUsername" value="{{ old('email') }}">
                       </div>
+                      @error('email')
+                        <div class="text-danger">{{ $message }}</div>
+                      @enderror
                     </div>
                     <div class="col-6">
                       <label for="yourUsername" class="form-label">Photo</label>
                       <div class="input-group has-validation">
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+                        <input type="file" name="photo" class="form-control" id="yourUsername" >
                       </div>
                     </div>
                     <div class="col-6">
                       <label for="yourUsername" class="form-label">Bio</label>
                       <div class="input-group has-validation">
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+                        <textarea type="text" name="bio" class="form-control" id="yourUsername">{{ old('bio') }}</textarea>
                       </div>
+                      @error('bio')
+                        <div class="text-danger">{{ $message }}</div>
+                      @enderror
                     </div>
 
                     <div class="col-6">
                       <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <input type="password" name="password" class="form-control" id="yourPassword" >
+                      @error('password')
+                        <div class="text-danger">{{ $message }}</div>
+                      @enderror
                     </div>
 
                     <div class="col-6">
                       <label for="yourPassword" class="form-label">Confirm Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <input type="password" name="password_confirmation" class="form-control" id="yourPassword">
                     </div>
 
                     <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Remember me</label>
-                      </div>
+                      <button class="btn btn-primary w-100" type="submit">Register</button>
                     </div>
-                    
+
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Login</button>
-                    </div>
-                    <div class="col-12">
-                      <p class="small mb-0">Don't have account? <a href="{{ route('register') }}">Create an account</a></p>
+                      <p class="small mb-0">I have an account? <a href="{{ route('login') }}">Create an account</a></p>
                     </div>
                   </form>
 
