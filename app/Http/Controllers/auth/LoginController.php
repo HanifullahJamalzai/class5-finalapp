@@ -21,6 +21,13 @@ class LoginController extends Controller
             'email.email' => 'بچیش همو ایمیل ته صحی نوشته کو'
         ]);
         
-        dd($request->all());
+        if(!auth()->attempt(['email' => $request->email, 'password' => $request->password]))
+        {
+            session()->flash('failed', 'Email and Password mismatch!');
+            return back();
+        }else {
+            auth()->attempt(['email' => $request->email, 'password' => $request->password], $request->remember);
+            return redirect('admin');
+        }
     }
 }

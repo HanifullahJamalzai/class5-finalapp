@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,13 +20,15 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function () {
     Route::get('/', function () {
         return view('admin.index');
     });
-
+    Route::get('/logout', [LogoutController::class, 'logout'] )->name('logout');
 });
 
-Route::get('login', [LoginController::class, 'index'])->name('login');
-Route::post('login/user', [LoginController::class, 'login'])->name('user.login');
-Route::get('register', [RegisterController::class, 'index'])->name('register');
-Route::post('register/user', [RegisterController::class, 'store'])->name('user.store');
+Route::group(['middleware' => 'guest'], function(){
+    Route::get('login', [LoginController::class, 'index'])->name('login');
+    Route::post('login/user', [LoginController::class, 'login'])->name('user.login');
+    Route::get('register', [RegisterController::class, 'index'])->name('register');
+    Route::post('register/user', [RegisterController::class, 'store'])->name('user.store');
+});
 
 
 
