@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterController;
@@ -20,6 +21,7 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function () {
     Route::get('/', function () {
         return view('admin.index');
     });
+    Route::resource('/testimonial', TestimonialController::class);
     Route::get('/logout', [LogoutController::class, 'logout'] )->name('logout');
 });
 
