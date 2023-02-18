@@ -46,28 +46,23 @@
 
         @foreach ($testimonials as $item)
             <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body pt-4">
+                        <div class="d-flex" style="justify-content: space-between">
+                            <span> Testimonial </span>
+                            <span><i class="bi bi-pen" style="cursor: pointer"></i> | <i class="bi bi-trash" style="cursor: pointer"></i></span>
+                        </div>
 
-            <div class="card">
-                <div class="card-body pt-4">
-                    <div class="d-flex" style="justify-content: space-between">
-                        <span> Testimonial </span>
-                        <span>EDIT| DELETE</span>
+                        <ul class="list-group">
+                            <li class="list-group-item">Name: {{ $item->name }}</li>
+                            <li class="list-group-item">Position: {{ $item->position }}</li>
+                            <li class="list-group-item">
+                                <span class="bg-primary text-white p-1 text-bold" style="border-radius: 5px;"> Description: </span> <br>
+                                <p> {{ $item->description }}</p>
+                            </li>
+                        </ul>
                     </div>
-
-                <!-- Default List group -->
-                <ul class="list-group">
-                    <li class="list-group-item">Name: {{ $item->name }}</li>
-                    <li class="list-group-item">Position: {{ $item->position }}</li>
-                    <li class="list-group-item">
-                        <span class="bg-primary text-white p-1 text-bold" style="border-radius: 5px;"> Description: </span> <br>
-                        <p> {{ $item->description }}</p>
-                    </li>
-                </ul>
                 </div>
-
-    
-            </div>
-
             </div>
         @endforeach
 
