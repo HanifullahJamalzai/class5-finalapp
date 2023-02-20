@@ -66,9 +66,10 @@ class TestimonialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Testimonial $testimonial)
     {
-        //
+        $testimonials = Testimonial::all();
+        return view('admin.testimonial.index', compact('testimonial', 'testimonials'));
     }
 
     /**
@@ -78,9 +79,19 @@ class TestimonialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Testimonial $testimonial)
     {
-        //
+        // dd($testimonial, $request->all());
+        $testimonial->update( 
+            $request->validate([
+                'name' => 'required|min:4|max:255',
+                'position' => 'required|min:4|max:255',
+                'description' => 'required|min:4|max:500',
+            ])
+        );
+        session()->flash('success', "Updated Successfully!");
+        return redirect('/admin/testimonial');
+        
     }
 
     /**
@@ -89,8 +100,11 @@ class TestimonialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Testimonial $testimonial)
     {
-        //
+        // $testi = Testimonial::find($id);
+        $testimonial->delete();
+        session()->flash('success', "Deleted Successfully!");
+        return back();
     }
 }
