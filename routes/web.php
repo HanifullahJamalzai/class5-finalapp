@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\PropertyController;
 use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
@@ -22,6 +23,7 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function () {
         return view('admin.index');
     });
     Route::resource('/testimonial', TestimonialController::class);
+    Route::resource('/property', PropertyController::class);
     Route::get('/logout', [LogoutController::class, 'logout'] )->name('logout');
 });
 
