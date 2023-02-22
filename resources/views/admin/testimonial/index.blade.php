@@ -84,7 +84,7 @@
                 </div>
             </div>
         @endforeach
-
+            {{ $testimonials->links() }}
         
       </div>
     </section>
