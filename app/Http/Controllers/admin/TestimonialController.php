@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TestimonialController extends Controller
 {
@@ -107,5 +108,18 @@ class TestimonialController extends Controller
         $testimonial->delete();
         session()->flash('success', "Deleted Successfully!");
         return back();
+    }
+
+    public function search(Request $request)
+    {
+        // dd(Testimonial::where('name', 'like', '%'.'a'.'%')->get());
+        // dd($request->query);
+
+        // $result = Testimonial::
+        //             where('name', 'LIKE', '%'.$request->query.'%')
+        //             ->get();
+        
+        // $result = DB::table('testimonials')->where('name', 'like', "%".$request->query."%")->get();
+        dd($result);
     }
 }
