@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function () {
     Route::get('/', function () {
         return view('admin.index');
     });
+    Route::get('/testimonial/search', [TestimonialController::class, 'search'])->name('testimonial.search');
     Route::resource('/testimonial', TestimonialController::class);
     Route::resource('/property', PropertyController::class);
     Route::get('/logout', [LogoutController::class, 'logout'] )->name('logout');
