@@ -15,7 +15,7 @@
                       <input type="text" name="query" placeholder="Search" title="Enter search keyword">
                       <button type="submit" title="Search"><i class="bi bi-search"></i></button>
                     </form>
-                  </div><!-- End Search Bar -->
+                </div><!-- End Search Bar -->
             </div>
 
           <form action="{{ isset($testimonial) ? route('testimonial.update', ['testimonial' => $testimonial->id]) : route('testimonial.store') }}" method="post">

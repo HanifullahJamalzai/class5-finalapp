@@ -115,11 +115,12 @@ class TestimonialController extends Controller
         // dd(Testimonial::where('name', 'like', '%'.'a'.'%')->get());
         // dd($request->query);
 
-        // $result = Testimonial::
-        //             where('name', 'LIKE', '%'.$request->query.'%')
-        //             ->get();
+        $testimonials = Testimonial::
+                    where('name', 'LIKE', '%'.$request->input('query').'%')
+                    ->get();
         
-        // $result = DB::table('testimonials')->where('name', 'like', "%".$request->query."%")->get();
-        dd($result);
+        // $testimonials = DB::table('testimonials')->where('name', 'like', "%".$request->input('query')."%")->get();
+        return view('admin.testimonial.search', compact('testimonials'));
+
     }
 }
