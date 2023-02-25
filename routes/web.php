@@ -23,6 +23,9 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function () {
         return view('admin.index');
     });
     Route::get('/testimonial/search', [TestimonialController::class, 'search'])->name('testimonial.search');
+    Route::get('/testimonial/restore', [TestimonialController::class, 'restore'])->name('testimonial.restore');
+    Route::delete('/testimonial/forceDelete', [TestimonialController::class, 'forceDelete'])->name('testimonial.forceDelete');
+    Route::get('/testimonial/trash', [TestimonialController::class, 'trash'])->name('testimonial.trash');
     Route::resource('/testimonial', TestimonialController::class);
     Route::resource('/property', PropertyController::class);
     Route::get('/logout', [LogoutController::class, 'logout'] )->name('logout');

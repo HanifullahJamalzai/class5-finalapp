@@ -10,6 +10,7 @@
         <div class="card-body">
             <div class="d-flex" style="justify-content: space-between; align-items: center;">
                 <h5 class="card-title">Testimonial</h5>
+                <a href="{{ route('testimonial.trash') }}"><i class="bi bi-trash" style="font-size: 2rem; background: yellow"></i></a>
                 <div class="search-bar">
                     <form class="search-form d-flex align-items-center" method="get" action="{{ route('testimonial.search') }}">
                       <input type="text" name="query" placeholder="Search" title="Enter search keyword">

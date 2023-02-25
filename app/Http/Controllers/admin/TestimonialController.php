@@ -123,4 +123,24 @@ class TestimonialController extends Controller
         return view('admin.testimonial.search', compact('testimonials'));
 
     }
+    
+    public function trash()
+    {
+        $trashed = Testimonial::onlyTrashed()->get();
+        return view('admin.testimonial.trash', compact('trashed'));
+    }
+    public function forceDelete(Request $request)
+    {
+        
+        $testimonial =Testimonial::withTrashed()->where('id', $request->input('testimonial'))->get();
+        $testimonial->each->forceDelete();
+        return back();
+
+    }
+    public function restore(Request  $request)
+    {
+        $testimonial =Testimonial::withTrashed()->where('id', $request->input('testimonial'))->get();
+        $testimonial->each->restore();
+        return back();
+    }
 }
