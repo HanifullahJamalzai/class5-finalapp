@@ -17,7 +17,7 @@
       </li><!-- End Dashboard Nav -->
     
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('testimonial.index') }}">
+        <a class="nav-link collapsed" href="{{ route('property.index') }}">
           <i class="bi bi-grid"></i>
           <span>Property</span>
         </a>
