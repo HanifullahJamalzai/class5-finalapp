@@ -28,6 +28,7 @@
 
   <!-- Template Main CSS File -->
   <link href=" {{ asset('admin_assets/css/style.css') }}" rel="stylesheet">
+  @yield('styles')
 
   <!-- =======================================================
   * Template Name: NiceAdmin - v2.5.0
@@ -66,6 +67,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('admin_assets/js/main.js') }}"></script>
+  @yield('scripts')
 
 </body>
 

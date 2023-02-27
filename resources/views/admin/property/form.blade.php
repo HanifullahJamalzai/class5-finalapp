@@ -84,7 +84,7 @@
                     </div>
                     <div class="col-12">
                       <div class="form-floating">
-                        <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;" name="description"></textarea>
+                        <textarea class="tinymce-editor" placeholder="Address" id="floatingTextarea" style="height: 100px;" name="description"></textarea>
                         <label for="floatingTextarea">Description</label>
                       </div>
                     </div>
