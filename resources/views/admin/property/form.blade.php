@@ -87,7 +87,9 @@
                     <div class="col-12">
                       <div class="form-floating">
                         {{--  tinymce-editor Is the Class of Rich Text Editor--}}
-                        <textarea class="tinymce-editor" placeholder="Address" id="floatingTextarea" style="height: 100px;" name="description"></textarea>
+                        <textarea 
+                        {{-- class="tinymce-editor"  --}}
+                        placeholder="Address" id="floatingTextarea" style="height: 100px;" name="description"></textarea>
                         <label for="floatingTextarea">Description</label>
                       </div>
                     </div>
@@ -120,7 +122,7 @@
                       <div class="form-floating mb-3">
                         <select name="tag[]" class="form-select" id="floatingSelect" aria-label="State" multiple>
                           @foreach ($tags as $tag)
-                              <option value="{{ $tag->name }}">{{ $tag->name }}</option>
+                              <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                           @endforeach
                         </select>
                         <label for="floatingSelect">Tags</label>
