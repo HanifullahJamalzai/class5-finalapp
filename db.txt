@@ -15,7 +15,6 @@ user
     - description
     - type (home, house, block, sarai, zamen)
     - category (sale, sell, rent, mortgage)
-    - Agent_id
 
 -> Property_indoor
     - property_id        

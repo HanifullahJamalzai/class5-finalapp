@@ -9,6 +9,8 @@ class Property extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function propertyIndoor()
     {
         return $this->hasOne(PropertyIndoor::class);

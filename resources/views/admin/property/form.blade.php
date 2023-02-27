@@ -26,8 +26,9 @@
                   <h5 class="card-title">Property Form</h5>
     
                   <!-- Floating Labels Form -->
-                  <form action="#" class="row g-3" method="POST" enctype="multipart/form-data">
+                  <form action="{{ route('property.store') }}" class="row g-3" method="POST" enctype="multipart/form-data">
                     @csrf
+
                     <div class="col-md-12">
                       <div class="form-floating">
                         <input type="text" class="form-control" id="floatingName" name="title" placeholder="Property Title">
@@ -55,7 +56,7 @@
                     
                     <div class="col-md-4">
                       <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect" aria-label="State">
+                        <select class="form-select" id="floatingSelect" aria-label="State" name="type">
                           <option value="Home" selected="">Home</option>
                           <option value="Courty-yard">Courty-yard</option>
                           <option value="Block">Block</option>
@@ -67,7 +68,7 @@
                     </div>
                     <div class="col-md-4">
                       <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect" aria-label="State">
+                        <select class="form-select" id="floatingSelect" aria-label="State" name="category">
                           <option selected="Sale">Sale</option>
                           <option value="Sell">Sell</option>
                           <option value="Mortgage">Mortgage</option>
@@ -101,7 +102,7 @@
                     <div class="col-md-3">
                       <div class="col-md-12">
                         <div class="form-floating">
-                          <input type="number" id="quantity" name="kitchen" min="1" class="form-control" id="floatingCity" placeholder="Rooms">
+                          <input type="number" id="quantity" name="kitchen" min="1" class="form-control" id="floatingCity" placeholder="Kitchen">
                           <label for="floatingCity">Kitchen</label>
                         </div>
                       </div>
@@ -109,7 +110,7 @@
                     <div class="col-md-3">
                       <div class="col-md-12">
                         <div class="form-floating">
-                          <input type="number" id="quantity" name="bathroom" min="1" class="form-control" id="floatingCity" placeholder="Rooms">
+                          <input type="number" id="quantity" name="bathroom" min="1" class="form-control" id="floatingCity" placeholder="bathroom">
                           <label for="floatingCity">Bathroom</label>
                         </div>
                       </div>
@@ -118,9 +119,9 @@
                     <div class="col-md-3">
                       <div class="form-floating mb-3">
                         <select name="tag[]" class="form-select" id="floatingSelect" aria-label="State" multiple>
-                          <option selected="">New York</option>
-                          <option value="1">Oregon</option>
-                          <option value="2">DC</option>
+                          @foreach ($tags as $tag)
+                              <option value="{{ $tag->name }}">{{ $tag->name }}</option>
+                          @endforeach
                         </select>
                         <label for="floatingSelect">Tags</label>
                       </div>
