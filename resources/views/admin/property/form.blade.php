@@ -82,8 +82,10 @@
                         <label for="floatingPassword">Photo</label>
                       </div>
                     </div>
+
                     <div class="col-12">
                       <div class="form-floating">
+                        {{--  tinymce-editor Is the Class of Rich Text Editor--}}
                         <textarea class="tinymce-editor" placeholder="Address" id="floatingTextarea" style="height: 100px;" name="description"></textarea>
                         <label for="floatingTextarea">Description</label>
                       </div>
