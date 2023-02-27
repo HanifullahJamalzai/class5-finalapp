@@ -68,7 +68,6 @@ class PropertyController extends Controller
             'bathroom' => $request->bathroom,
         ]);
         // dd($request->tag);
-
         $property->tags()->attach($request->tag);
 
         return redirect('/admin/property');
