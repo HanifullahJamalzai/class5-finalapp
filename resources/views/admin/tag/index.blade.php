@@ -30,7 +30,7 @@
                 <div class="card-header">
                     <div style="display: flex; justify-content: space-between">
                         <span>
-                            Services List 
+                            Tags List 
                         </span>
                         <span>
                             <a href="{{ route('property.create') }}" class="btn btn-primary">Add Property</a>
@@ -42,26 +42,20 @@
                     <table id="datatablesSimple">
                         <thead>
                             <tr>
-                                <th>Title</th>
-                                <th>Icon</th>
-                                <th>Description</th>
+                                <th>Name</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Title</th>
-                                <th>Icon</th>
-                                <th>Description</th>
+                                <th>Name</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($services as $item)
+                            @foreach ($tags as $item)
                                 <tr>
-                                    <td>{{ $item->title }}</td>
-                                    <td>{{ $item->icon }}</td>
-                                    <td>{{ $item->description }}</td>
+                                    <td>{{ $item->name }}</td>
                                     <td class="d-flex"><a href="#" class="btn btn-success">EDIT</a> <a href="#" class="btn btn-danger">DELETE</a></td>
                                 </tr>
                             @endforeach

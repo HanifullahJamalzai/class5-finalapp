@@ -16,7 +16,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('property.index') }}">
+        <a class="nav-link collapsed" href="{{ route('tag.index') }}">
           <i class="bi bi-grid"></i>
           <span>Tag</span>
         </a>
@@ -29,7 +29,7 @@
       </li><!-- End Dashboard Nav -->
     
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('testimonial.index') }}">
+        <a class="nav-link collapsed" href="{{ route('service.index') }}">
           <i class="bi bi-grid"></i>
           <span>Services</span>
         </a>

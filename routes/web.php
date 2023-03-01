@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\admin\MessageController;
 use App\Http\Controllers\admin\PropertyController;
+use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\SettingController;
+use App\Http\Controllers\admin\TagController;
 use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
@@ -24,6 +26,8 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function () {
     Route::get('/', function () {
         return view('admin.index');
     });
+    Route::resource('/tag', TagController::class);
+    Route::resource('/service', ServiceController::class);
     Route::resource('/setting', SettingController::class);
     Route::resource('/message', MessageController::class);
     Route::resource('/property', PropertyController::class);
