@@ -75,8 +75,10 @@
                                     
                                     <td>
                                         @can('delete', $item)
-                                            <button class="btn btn-success">Edit</button>
-                                            <button class="btn btn-danger">DELETE</button>
+                                            {{-- <button class="btn btn-success">Edit</button> --}}
+                                            {{-- <x-deletebtn type="error" /> --}}
+                                            <x-btn type="edit" name="Edit" />
+                                            <x-btn type="delete" name="Delete" />
                                         @endcan
         
                                     </td>
