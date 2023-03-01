@@ -20,18 +20,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Hanifullah',
         //     'email' => 'hanifullah@gmail.com',
         // ]);
 
-        Message::factory(20)->create();
-        Service::factory(6)->create();
-        Setting::factory()->create();
-        Tag::factory(30)->create();
-        Testimonial::factory(3)->create();
+        // Message::factory(20)->create();
+        // Service::factory(6)->create();
+        // Setting::factory()->create();
+        // Tag::factory(30)->create();
+        // Testimonial::factory(3)->create();
         
     }
 }
