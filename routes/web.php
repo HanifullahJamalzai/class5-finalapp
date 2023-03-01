@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\MessageController;
 use App\Http\Controllers\admin\PropertyController;
 use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\auth\LoginController;
@@ -22,6 +23,7 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function () {
     Route::get('/', function () {
         return view('admin.index');
     });
+    Route::resource('/message', MessageController::class);
     Route::resource('/property', PropertyController::class);
     
     Route::get('/testimonial/search', [TestimonialController::class, 'search'])->name('testimonial.search');
