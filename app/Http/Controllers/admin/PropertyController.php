@@ -40,7 +40,6 @@ class PropertyController extends Controller
      */
     public function store(PropertyStoreRequest $request)
     {
-        // $property = new  Property();
         $property['user_id'] = auth()->user()->id;
         $property['title'] = $request->title;
         $property['beswa'] = $request->beswa;
@@ -50,16 +49,10 @@ class PropertyController extends Controller
         $property['type'] = $request->type;
         $property['category'] = $request->category;
 
-        // if($request->photo){
-            // dd($request->photo);
-            $fileName = 'property_'.date('Ymd_hmis').'_'.rand(10, 10000).'.'.$request->photo->extension();
-            $request->photo->storeAs('photos/properties/', $fileName, 'public');
-            $property['photo'] = '/storage/photos/properties/'.$fileName;
-        // }
+        $fileName = 'property_'.date('Ymd_hmis').'_'.rand(10, 10000).'.'.$request->photo->extension();
+        $request->photo->storeAs('photos/properties/', $fileName, 'public');
+        $property['photo'] = '/storage/photos/properties/'.$fileName;
         $property = Property::create($property);
-        // $property->save();
-
-        // dd($property->id);
 
         PropertyIndoor::create([
             'property_id' => $property->id,
@@ -67,7 +60,7 @@ class PropertyController extends Controller
             'kitchen' => $request->kitchen,
             'bathroom' => $request->bathroom,
         ]);
-        // dd($request->tag);
+
         $property->tags()->attach($request->tag);
 
         return redirect('/admin/property');

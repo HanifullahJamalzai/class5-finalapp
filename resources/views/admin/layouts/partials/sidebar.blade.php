@@ -27,7 +27,8 @@
           <span>Testimonial</span>
         </a>
       </li><!-- End Dashboard Nav -->
-    
+    @can('IsAdmin')
+      
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('service.index') }}">
           <i class="bi bi-grid"></i>
@@ -50,6 +51,7 @@
       </li>
       <!-- End Dashboard Nav -->
       
+    @endcan
       <!-- End Dashboard Nav -->
       
       

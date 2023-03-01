@@ -4,7 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
+use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ServiceController extends Controller
 {
@@ -13,8 +15,14 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // function __construct(){
+    //     Gate::authorize('IsAdmin');
+    // }
+
     public function index()
     {
+        Gate::authorize('IsAdmin');
+
         $services = Service::all();
         return view('admin.service.index', compact('services'));
     }
