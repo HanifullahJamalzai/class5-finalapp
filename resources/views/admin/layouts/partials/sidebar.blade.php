@@ -43,7 +43,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('testimonial.index') }}">
+        <a class="nav-link collapsed" href="{{ route('setting.index') }}">
           <i class="bi bi-grid"></i>
           <span>Setting</span>
         </a>
