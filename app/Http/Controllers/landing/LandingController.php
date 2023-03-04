@@ -13,7 +13,7 @@ class LandingController extends Controller
     {
         return view('landing.index')
                 ->with('sliders', Property::limit(3)->with('propertyIndoor', 'tags')->orderBy('id','desc')->get())
-                ->with('features', Service::limit(6)->with('propertyIndoor', 'tags')->orderBy('id','desc')->get());
+                ->with('features', Service::limit(6)->orderBy('id','desc')->get());
     }
 
     public function property($id, $property)

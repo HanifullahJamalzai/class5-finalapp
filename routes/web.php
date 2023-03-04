@@ -52,19 +52,29 @@ Route::group(['middleware' => 'guest'], function(){
 
 
 
-Route::get('/', [LandingController::class, 'index'])->name('index');
-Route::get('/property/{id}/{property?}', [LandingController::class, 'property'])->name('property');
+Route::group(['middleware', 'LanguageSwitcher'], function(){
 
-Route::get('/contact', function () {
-    return view('landing.contact');
-});
+    Route::get('/', [LandingController::class, 'index'])->name('index');
+    Route::get('/property/{id}/{property?}', [LandingController::class, 'property'])->name('property');
+    
+    
+    Route::get('/contact', function () {
+        return view('landing.contact');
+    });
+    
+    Route::get('/agent', function () {
+        return view('landing.agent');
+    });
+    
+    Route::get('/properties', function () {
+        return view('landing.properties');
+    });
 
-Route::get('/agent', function () {
-    return view('landing.agent');
-});
-
-Route::get('/properties', function () {
-    return view('landing.properties');
+    Route::get('/language/{language}', function($language){
+        // dd($language);
+        session(['language' => $language]);
+        return back();
+    })->name('language');
 });
 
 
