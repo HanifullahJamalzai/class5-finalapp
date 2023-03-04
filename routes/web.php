@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\landing\LandingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,9 +52,8 @@ Route::group(['middleware' => 'guest'], function(){
 
 
 
-Route::get('/', function () {
-    return view('landing.index');
-});
+Route::get('/', [LandingController::class, 'index'])->name('index');
+Route::get('/property/{id}/{property?}', [LandingController::class, 'property'])->name('property');
 
 Route::get('/contact', function () {
     return view('landing.contact');

@@ -35,7 +35,6 @@
                         <span>
                             <a href="{{ route('property.create') }}" class="btn btn-primary">Add Property</a>
                         </span>
-
                     </div>
                 </div>
                 <div class="card-body">
