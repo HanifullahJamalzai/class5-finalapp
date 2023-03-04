@@ -7,26 +7,29 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 animate-box">
-                <div class="property">
-                    <a href="#" class="fh5co-property" style="background-image: url(images/property-1.jpg);">
-                        <span class="status">Sale</span>
-                        <ul class="list-details">
-                            <li>2000 ft sq<li>
-                            <li>5 Bedroom:</li>
-                            <li>4 Bathroom:</li>
-                            <li>3 Garage:</li>
-                        </ul>
-                    </a>
-                    <div class="property-details">
-                        <h3>Properties Near in Beach</h3>
-                        <span class="price">$3,000</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores.</p>
-                        <span class="address"><i class="icon-map"></i>Thomas Street, St. Louis, MO 8990, USA</span>
+            @foreach ($sliders as $item)
+                <div class="col-md-4 animate-box">
+                    <div class="property">
+                        <a href="{{ route('property', ['property' => Str::slug($item->title, '-'), 'id' => $item->id]) }}" class="fh5co-property" style="background-image: url({{ $item->photo }});">
+                            <span class="status">{{ $item->category }}</span>
+                            <ul class="list-details">
+                                <li> beswa<li>
+                                <li>5 Bedroom:</li>
+                                <li>4 Bathroom:</li>
+                                <li>3 Garage:</li>
+                            </ul>
+                        </a>
+                        <div class="property-details">
+                            <h3>Properties Near in Beach</h3>
+                            <span class="price">$3,000</span>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores.</p>
+                            <span class="address"><i class="icon-map"></i>Thomas Street, St. Louis, MO 8990, USA</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 animate-box">
+            @endforeach
+
+            {{-- <div class="col-md-4 animate-box">
                 <div class="property">
                     <a href="#" class="fh5co-property" style="background-image: url(images/property-2.jpg);">
                         <span class="status">Rent</span>
@@ -120,7 +123,7 @@
                         <span class="address"><i class="icon-map"></i>Thomas Street, St. Louis, MO 8990, USA</span>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
