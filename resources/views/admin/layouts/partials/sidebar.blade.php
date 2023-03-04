@@ -3,7 +3,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed" href="{{ route('admin') }}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -57,13 +57,13 @@
       
       <li class="nav-heading">Pages</li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('testimonial.index') }}">
+        <a class="nav-link collapsed" href="{{ route('profile.index') }}">
           <i class="bi bi-grid"></i>
           <span>Profile</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('testimonial.index') }}">
+        <a class="nav-link collapsed" href="{{ route('logout') }}">
           <i class="bi bi-grid"></i>
           <span>Logout</span>
         </a>

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\MessageController;
+use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\PropertyController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\SettingController;
@@ -23,9 +25,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function () {
-    Route::get('/', function () {
-        return view('admin.index');
-    });
+    Route::get('/', [AdminController::class, 'index'])->name('admin');
+
+    Route::resource('/profile', ProfileController::class);
     Route::resource('/tag', TagController::class);
     Route::resource('/service', ServiceController::class);
     Route::resource('/setting', SettingController::class);
