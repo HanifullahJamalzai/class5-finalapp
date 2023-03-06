@@ -149,11 +149,13 @@ class PropertyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Property $property)
+    public function destroy($id)
     {
+        $property = Property::find($id);
         $property->propertyIndoor()->delete();
         $property->tags()->detach();
         @unlink(public_path().'/'.$property->photo);
+        $property->delete();
         session()->flash('success', 'You have successfully deleted Property');
         return redirect('/admin/property');
     }

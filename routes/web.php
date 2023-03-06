@@ -33,6 +33,7 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function () {
     Route::resource('/service', ServiceController::class);
     Route::resource('/setting', SettingController::class);
     Route::resource('/message', MessageController::class);
+    Route::get('/property/{id}/delete', [PropertyController::class, 'destroy'])->name('property.delete');
     Route::resource('/property', PropertyController::class);
     
     Route::get('/testimonial/search', [TestimonialController::class, 'search'])->name('testimonial.search');

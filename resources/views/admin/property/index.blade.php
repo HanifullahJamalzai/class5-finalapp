@@ -69,9 +69,9 @@
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->category }}</td>
                                     
-                                    <td>{{ $item->propertyIndoor->rooms}}</td>
-                                    <td>{{ $item->propertyIndoor->bathroom }}</td>
-                                    <td>{{ $item->propertyIndoor->kitchen}}</td>
+                                    <td>{{ $item->propertyIndoor->rooms ?? "Not Defined"}}</td>
+                                    <td>{{ $item->propertyIndoor->bathroom ?? "Not Defined" }}</td>
+                                    <td>{{ $item->propertyIndoor->kitchen ?? "Not Defined"}}</td>
                                     
                                     <td>
                                         @can('delete', $item)
