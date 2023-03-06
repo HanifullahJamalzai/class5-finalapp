@@ -27,6 +27,11 @@ class LoginController extends Controller
             return back();
         }else {
             auth()->attempt(['email' => $request->email, 'password' => $request->password], $request->remember);
+            if(auth()->user()->email_verified_at == null){
+                session()->flash('failed', 'Please Verify Your Email First!');
+                auth()->logout();
+                return back();
+            }
             return redirect('admin');
         }
     }

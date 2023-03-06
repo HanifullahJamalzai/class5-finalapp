@@ -12,6 +12,7 @@ use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\landing\LandingController;
+use App\Http\Controllers\VerifyUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,6 +46,7 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function () {
 });
 
 Route::group(['middleware' => 'guest'], function(){
+    Route::get('verifyUser/{token}', [VerifyUserController::class, 'verifyUser'])->name('verifyUser');
     Route::get('login', [LoginController::class, 'index'])->name('login');
     Route::post('login/user', [LoginController::class, 'login'])->name('user.login');
     Route::get('register', [RegisterController::class, 'index'])->name('register');

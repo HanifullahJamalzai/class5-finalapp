@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\VerifyUserMail;
 use App\Models\User;
+use App\Models\VerifyUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -42,10 +45,16 @@ class RegisterController extends Controller
         }
         $user->save();
 
-        // $user['password'] = bcrypt($request->password);
+        $token = VerifyUser::create([
+            'user_id' => $user->id,
+            'token'  => str()->random(60)
+        ]);
+
+        Mail::to($user->email)->send(new VerifyUserMail($user));
+
         
         // dd($request->all());
-        session()->flash('success', 'You have successfully registered');
+        session()->flash('success', 'You have successfully registered Please Verify Your Email to Proceed the Request');
         return redirect('login');
     }
 }
