@@ -13,10 +13,12 @@ class Btn extends Component
      */
     public $type;
     public $name;
-    public function __construct($type, $name)
+    public $item;
+    public function __construct($type, $name, $item)
     {
         $this->type = $type;
         $this->name = $name;
+        $this->item = $item;
     }
     
     /**
