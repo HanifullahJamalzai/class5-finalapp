@@ -40,9 +40,9 @@ class PropertyController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-     public function store(Request $request, Property $property)
+     public function store(PropertyStoreRequest $request)
      {
-         // $property['user_id'] = auth()->user()->id;
+         $property['user_id'] = auth()->user()->id;
          $property['title'] = $request->title;
          $property['beswa'] = $request->beswa;
          $property['address'] = $request->address;
@@ -68,7 +68,9 @@ class PropertyController extends Controller
             'bathroom' => $request->bathroom,
         ]);
 
-        $property->tags()->attach($request->tag);
+        if($request->tag){
+            $property->tags()->attach($request->tag);
+        }
 
         
          session()->flash('success', 'You have successfully Updated Property');
