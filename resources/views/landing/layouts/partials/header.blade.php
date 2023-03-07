@@ -15,9 +15,9 @@
                             <li><a href="#">CSS3 &amp; HTML5</a></li>
                         </ul>
                     </li>
-                    <li><a href="agent.html">@lang('navigation.agents')</a></li>
-                    <li><a href="blog.html">@lang('navigation.properties')</a></li>
-                    <li><a href="contact.html">@lang('navigation.contact')</a></li>
+                    <li><a href="{{ route('agent') }}">@lang('navigation.agents')</a></li>
+                    <li><a href="{{ route('properties') }}">@lang('navigation.properties')</a></li>
+                    <li><a href="{{ route('contact') }}">@lang('navigation.contact')</a></li>
                     
                     <li><a href="{{ route('language', ['language' => 'pa']) }}" >PA</a></li>
                     <li><a href="{{ route('language', ['language' => 'en']) }}" >EN</a></li>

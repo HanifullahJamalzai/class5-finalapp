@@ -2,7 +2,7 @@
 
 @section('contents')
 
-    @include('landing.layouts.partials.aside')
+    {{-- @include('landing.layouts.partials.aside') --}}
     @include('landing.layouts.partials.search')
     
 

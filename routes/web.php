@@ -63,15 +63,15 @@ Route::group(['middleware', 'LanguageSwitcher'], function(){
     
     Route::get('/contact', function () {
         return view('landing.contact');
-    });
+    })->name('contact');
     
     Route::get('/agent', function () {
         return view('landing.agent');
-    });
+    })->name('agent');
     
     Route::get('/properties', function () {
         return view('landing.properties');
-    });
+    })->name('properties');
 
     Route::get('/language/{language}', function($language){
         // dd($language);
