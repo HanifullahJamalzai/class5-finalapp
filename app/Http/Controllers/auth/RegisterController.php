@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\VerifyUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class RegisterController extends Controller
 {
@@ -40,7 +41,13 @@ class RegisterController extends Controller
         if($request->photo){
             // dd($request->photo);
             $fileName = 'user_'.date('Ymd_hmis').'_'.rand(10, 10000).'.'.$request->photo->extension();
-            $request->photo->storeAs('photos/users/', $fileName, 'public');
+            // open an image file
+            $img = Image::make($request->photo);
+            // now you are able to resize the instance
+            $img->resize(200, 200);
+            $img->save('storage/photos/users/'.$fileName);
+
+            // $request->photo->storeAs('photos/users/', $fileName, 'public');
             $user['photo'] = '/storage/photos/users/'.$fileName;
         }
         $user->save();

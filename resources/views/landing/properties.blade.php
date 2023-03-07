@@ -6,7 +6,6 @@
     @include('landing.layouts.partials.search')
     
 
-    
 		<div id="fh5co-properties" class="fh5co-section-gray">
 			<div class="container">
 				<div class="row">
