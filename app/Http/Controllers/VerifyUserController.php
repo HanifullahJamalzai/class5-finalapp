@@ -19,6 +19,10 @@ class VerifyUserController extends Controller
             $user->save();
             session()->flash('success', 'You have successfully Verified Your Email Please Login to proceed you request');
             return redirect('login');
+        }else{
+            session()->flash('failed', 'Token mismatch');
+            return redirect('login');
+
         }
     }
 }
