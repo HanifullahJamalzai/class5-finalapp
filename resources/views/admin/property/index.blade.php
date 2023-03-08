@@ -30,7 +30,9 @@
                 <div class="card-header">
                     <div style="display: flex; justify-content: space-between">
                         <span>
-                            Properties List 
+                           <a href="#" onclick="window.print()">
+                                Properties List
+                            </a> 
                         </span>
                         <span>
                             <a href="{{ route('property.create') }}" class="btn btn-primary">Add Property</a>
